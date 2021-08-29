@@ -20,7 +20,7 @@ class GoogleauthBloc extends Bloc<GoogleauthEvent, GoogleauthState> {
     if (event is InitializeFirebase) {
       yield GoogleauthLoading();
       FirebaseApp firebaseApp = await Firebase.initializeApp();
-      User user = FirebaseAuth.instance.currentUser;
+      User? user = FirebaseAuth.instance.currentUser;
       UserInfoStore.setUser = user;
       yield GoogleauthLoadedWithResponse(user);
     }
@@ -28,12 +28,12 @@ class GoogleauthBloc extends Bloc<GoogleauthEvent, GoogleauthState> {
     if (event is signInWithGoogle) {
       yield GoogleauthLoading();
       FirebaseAuth auth = FirebaseAuth.instance;
-      User user;
+      late User user;
 
       final GoogleSignIn googleSignIn = GoogleSignIn();
 
       final GoogleSignInAccount googleSignInAccount =
-          await googleSignIn.signIn();
+          (await googleSignIn.signIn())!;
 
       if (googleSignInAccount != null) {
         final GoogleSignInAuthentication googleSignInAuthentication =
@@ -48,7 +48,7 @@ class GoogleauthBloc extends Bloc<GoogleauthEvent, GoogleauthState> {
           final UserCredential userCredential =
               await auth.signInWithCredential(credential);
 
-          user = userCredential.user;
+          user = userCredential.user!;
         } on FirebaseAuthException catch (e) {
           if (e.code == 'account-exists-with-different-credential') {
             // handle the error here

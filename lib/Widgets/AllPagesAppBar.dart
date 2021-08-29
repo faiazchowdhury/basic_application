@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AllPagesAppBar {
-  static Widget appBar(BuildContext context, String text) {
+  static PreferredSizeWidget? appBar(BuildContext context, String text) {
     final bloc = new AllcallsBloc();
     return AppBar(
       actions: [

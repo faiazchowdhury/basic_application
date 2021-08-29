@@ -17,7 +17,7 @@ class DistanceInputScreen extends StatefulWidget {
 }
 
 class _DistanceInputScreenState extends State<DistanceInputScreen> {
-  double width, newheight;
+  late double width, newheight;
   TextEditingController textController = new TextEditingController();
   String selectedText = "", error = "";
   final bloc = new AllcallsBloc();
@@ -83,13 +83,12 @@ class _DistanceInputScreenState extends State<DistanceInputScreen> {
                 child: TypeAheadFormField(
                     onSuggestionSelected: (suggestion) {
                       setState(() {
-                        textController.text = suggestion;
-                        selectedText = suggestion;
+                        textController.text = suggestion.toString();
+                        selectedText = suggestion.toString();
                       });
-                      return suggestion;
                     },
                     validator: (value) {
-                      if (value != selectedText || value.isEmpty) {
+                      if (value != selectedText || value!.isEmpty) {
                         return "Select the suggestion that matches the street address";
                       }
                       return null;
@@ -117,7 +116,7 @@ class _DistanceInputScreenState extends State<DistanceInputScreen> {
                             border: OutlineInputBorder())),
                     itemBuilder: (context, suggestion) {
                       return ListTile(
-                        title: Text(suggestion),
+                        title: Text(suggestion.toString()),
                       );
                     },
                     suggestionsCallback: (pattern) async {

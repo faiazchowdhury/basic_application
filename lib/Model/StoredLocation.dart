@@ -1,6 +1,6 @@
 class StoredLocation {
-  static double _currentLat, _currentLong;
-  static String _searchedName, _currentName;
+  static double? _currentLat, _currentLong;
+  static String? _searchedName, _currentName;
 
   static get currentLat => _currentLat;
   static get currentLong => _currentLong;

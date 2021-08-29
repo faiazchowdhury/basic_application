@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -44,7 +44,7 @@ dependencies:
   geocoding: ^2.0.1
   cloud_firestore: ^2.5.1
   flutter_local_notifications: ^5.0.0+1
-  pull_to_refresh: ^1.6.5
+  pull_to_refresh: ^2.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

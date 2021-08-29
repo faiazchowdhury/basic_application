@@ -45,11 +45,11 @@ class AllcallsBloc extends Bloc<AllcallsEvent, AllcallsState> {
       double long = position.longitude;
       List<Placemark> placemarks = await placemarkFromCoordinates(lat, long);
 
-      String name = placemarks[0].street +
+      String name = placemarks[0].street! +
           ", " +
-          placemarks[0].locality +
+          placemarks[0].locality! +
           ", " +
-          placemarks[0].country;
+          placemarks[0].country!;
       StoredLocation.setLat = lat;
       StoredLocation.setLong = long;
       StoredLocation.setCurrentName = name;

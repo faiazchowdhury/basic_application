@@ -1,5 +1,5 @@
 class ListOfHistory {
-  static List<String> _currentName, _docId, _searchedName, _distance;
+  static List<String>? _currentName, _docId, _searchedName, _distance;
 
   static get searchedNameList => _searchedName;
   static get currentNameList => _currentName;

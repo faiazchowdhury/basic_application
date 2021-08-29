@@ -13,7 +13,7 @@ class HistoryOfDistance extends StatefulWidget {
 }
 
 class _HistoryOfDistanceState extends State<HistoryOfDistance> {
-  double newheight, width;
+  late double newheight, width;
   final bloc = new AllcallsBloc();
   RefreshController _refreshController =
       RefreshController(initialRefresh: false);
